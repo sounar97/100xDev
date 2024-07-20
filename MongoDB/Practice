@@ -65,3 +65,122 @@ school> db.Students.find()
     address: { state: 'Kar', no: 123 }
   }
 ]
+#Sorting
+
+school> db.Students.find().sort({name:1})
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 },
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 }
+]
+school> db.Students.find().sort({name:-1})
+[
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 },
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  }
+]
+school> db.students.find().sort({age:1})
+
+school> db.Students.find().sort({age:1})
+[
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 },
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 },
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 }
+]
+school> db.Students.find().sort({age:-1})
+[
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 },
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  }
+]
+#limiting 
+db.Students.find().limit(1)
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  }
+]
+school> db.Students.find().limit(2)
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 }
+]
+ db.Students.find().sort({age:1}).limit(2)
+[
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 }
+]
+school> db.Students.find().sort({age:-1}).limit(2)
+[
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 },
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  }
+]
