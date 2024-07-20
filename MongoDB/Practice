@@ -39,3 +39,29 @@ school> db.Students.insertMany([{name:"abc",age:21},{name:"def",age:20},{name:"g
     '2': ObjectId('669832dd1425a8e751c4e49e')
   }
 }
+#DATA-Types
+school> db.Students.insertOne({name:"datatype",date:new Date(),working:null,courses:['Bio','Chem','Maths'],address:{state:"Kar",no:123}})
+
+{
+  acknowledged: true,
+  insertedId: ObjectId('669c01745c4ab0ba8bc4e49b')
+}
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21
+  },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc', age: 21 },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def', age: 20 },
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi', age: 22 },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    working: null,
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  }
+]
