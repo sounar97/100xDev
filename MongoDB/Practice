@@ -251,3 +251,170 @@ school> db.Students.find()
     age: 22
   }
 ]
+#updateMany
+school> db.Students.updateOne({name:"datatype"},{$unset:{working:""}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+school> db.Students.find({name:"datatype"})
+[
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  }
+]
+school> db.Students.updateMany({},{$set:{working:true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 6,
+  upsertedCount: 0
+}
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49d'),
+    name: 'def',
+    age: 20,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49e'),
+    name: 'ghi',
+    age: 22,
+    working: true
+  },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 },
+    working: true
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
+school> db.Students.updateOne({name:"datatype"},{$uset:{working:true}})
+MongoServerError: Unknown modifier: $uset. Expected a valid update modifier or pipeline-style update specified as an array
+school> db.Students.updateOne({name:"datatype"},{$unset:{working:true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49d'),
+    name: 'def',
+    age: 20,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49e'),
+    name: 'ghi',
+    age: 22,
+    working: true
+  },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 }
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
+school> db.Students.updateMany({working:{$exists:false}},{$set:{working:true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49d'),
+    name: 'def',
+    age: 20,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49e'),
+    name: 'ghi',
+    age: 22,
+    working: true
+  },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 },
+    working: true
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
