@@ -184,3 +184,36 @@ school> db.Students.find().sort({age:-1}).limit(2)
     age: 21
   }
 ]
+#Finding 
+db.collectionName.find({query},{projection})
+school> db.Students.find({},{name:true})
+[
+  { _id: ObjectId('669831c21425a8e751c4e49b'), name: 'Sourav' },
+  { _id: ObjectId('669832dd1425a8e751c4e49c'), name: 'abc' },
+  { _id: ObjectId('669832dd1425a8e751c4e49d'), name: 'def' },
+  { _id: ObjectId('669832dd1425a8e751c4e49e'), name: 'ghi' },
+  { _id: ObjectId('669c01745c4ab0ba8bc4e49b'), name: 'datatype' },
+  { _id: ObjectId('669c09402d5f7cfe7a3af9e2'), name: 'govind' }
+]
+school> db.Students.find({},{id:false,name:true})
+MongoServerError[Location31253]: Cannot do inclusion on field name in exclusion projection
+school> db.Students.find({},{_id:false,name:true})
+[
+  { name: 'Sourav' },
+  { name: 'abc' },
+  { name: 'def' },
+  { name: 'ghi' },
+  { name: 'datatype' },
+  { name: 'govind' }
+]
+school> db.Students.find({_id:false},{name:true})
+
+school> db.Students.find({},{_id:false,name:true,age:true})
+[
+  { name: 'Sourav', age: 21 },
+  { name: 'abc', age: 21 },
+  { name: 'def', age: 20 },
+  { name: 'ghi', age: 22 },
+  { name: 'datatype' },
+  { name: 'govind', age: 22 }
+]
