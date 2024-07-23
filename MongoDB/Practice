@@ -418,3 +418,84 @@ school> db.Students.find()
     working: true
   }
 ]
+#Deleting
+school> db.Students.deleteOne({name:"def"})
+{ acknowledged: true, deletedCount: 1 }
+school> df.Student.find()
+ReferenceError: df is not defined
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49e'),
+    name: 'ghi',
+    age: 22,
+    working: true
+  },
+  {
+    _id: ObjectId('669c01745c4ab0ba8bc4e49b'),
+    name: 'datatype',
+    date: ISODate('2024-07-20T18:27:00.278Z'),
+    courses: [ 'Bio', 'Chem', 'Maths' ],
+    address: { state: 'Kar', no: 123 },
+    working: true
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
+school> db.Students.updateOne({name:"datatype"},{$set:{working:false}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+school> db.Students.updateOne({name:"ghi"},{$set:{working:false}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+school> db.Students.deleteMany({working:false})
+{ acknowledged: true, deletedCount: 2 }
+school> db.students.find()
+
+school> db.Students.find()
+[
+  {
+    _id: ObjectId('669831c21425a8e751c4e49b'),
+    name: 'Sourav',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
