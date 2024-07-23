@@ -499,3 +499,28 @@ school> db.Students.find()
     working: true
   }
 ]
+#Compariosn Operators
+ db.Students.find({name:{$ne:"Sourav"}})
+[
+  {
+    _id: ObjectId('669832dd1425a8e751c4e49c'),
+    name: 'abc',
+    age: 21,
+    working: true
+  },
+  {
+    _id: ObjectId('669c09402d5f7cfe7a3af9e2'),
+    name: 'shekar',
+    age: 22,
+    working: true
+  }
+]
+##Lesser than is $lt
+##Lesser than or equal to $lte
+
+##Greater than is $gt
+##Graeter than or equal to $gte
+
+##Finding in group of array is ($in:[])
+##Finding in group of array expect those is ($nin:[])
+
