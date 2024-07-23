@@ -524,3 +524,16 @@ school> db.Students.find()
 ##Finding in group of array is ($in:[])
 ##Finding in group of array expect those is ($nin:[])
 
+#LOGICAL OPERATORS
+
+##combines and checks ($and[,])
+##combines or and checks ($or[,])
+##combines nor adn checks ($nor[,])
+##checks not as ($not{})
+
+
+#Indexing
+It helps in saving lot of time while searching in large no of data 
+by typing db.collectionName.createIndex({paramter})
+to find the indexname ""."".getIndex()
+to drop the indexname ""."".dropIndex()
